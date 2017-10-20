@@ -33,5 +33,14 @@ public class ObjednavkyNaDen {
 	public Collection<Objednavka> getObjednavky() {
 		return Collections.unmodifiableCollection( objednavky );
 	}
+
+	public boolean jeVolno(TerminObjednavky termin) {
+		for (Objednavka objednavka : objednavky) {
+			if (objednavka.terminJeObsadeny(termin)) {
+				return false;
+			};
+		}
+		return true;
+	}
 	
 }
